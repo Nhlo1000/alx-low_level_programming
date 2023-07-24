@@ -1,12 +1,25 @@
-nclude "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 /**
- * reset_to_98 - a function that takes a pointer to an int as parameter
- * and updates the value it points to to 98
- * @n: input
- * Return: n
+ * main - generates keygen.
+ * Return: 0 Always.
  */
-void reset_to_98(int *n)
+int main(void)
 {
-	*n = 98;
+	int r = 0, c = 0;
+	time_t t;
+
+	srand((unsigned int) time(&t));
+	while (c < 2772)
+	{
+		r = rand() % 128;
+		if ((c + r) > 2772)
+			break;
+		c = c + r;
+		printf("%c", r);
+	}
+	printf("%c\n", (2772 - c));
+	return (0);
 }
 
